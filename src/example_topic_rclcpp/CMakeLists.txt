@@ -10,6 +10,7 @@ find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(std_msgs REQUIRED)
 
+include_directories(include)
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
   # the following line skips the linter which checks for copyrights
@@ -28,9 +29,22 @@ add_executable(topic_publisher_01 src/topic_publisher_01.cpp)
 ament_target_dependencies(topic_publisher_01 rclcpp std_msgs) 
 add_executable(topic_subscribe_01 src/topic_subscribe_01.cpp)
 ament_target_dependencies(topic_subscribe_01 rclcpp std_msgs) 
+add_executable(SmartPointer src/SmartPointer.cpp)
+ament_target_dependencies(SmartPointer rclcpp std_msgs) 
+add_executable(learn_function src/learn_function.cpp)
+ament_target_dependencies(learn_function rclcpp std_msgs) 
+
+add_executable(Lambad src/Lambad.cpp)
+ament_target_dependencies(Lambad rclcpp std_msgs) 
+add_executable(learn_thread src/learn_thread.cpp)
+ament_target_dependencies(learn_thread rclcpp std_msgs) 
 
 install(TARGETS
     topic_publisher_01
     topic_subscribe_01
+    SmartPointer
+    Lambad
+    learn_function
+    learn_thread
     DESTINATION lib/${PROJECT_NAME}
 )
